@@ -1,0 +1,16 @@
+{% comment %}
+    Hlavni menu.
+{% endcomment %}
+{% load common %}
+<div id="navigation" class="span-22 prefix-1 suffix-1 last">
+    <div>
+        <ul id="nav">
+            <li class="first"><a href="/"{% active_menu_item request "/" %}>Úvodní stránka</a></li>
+            <li><a href="/dokumentace/"{% active_menu_item request "/dokumentace/" %}>Dokumentace</a></li>
+            <li><a href="/komunita/"{% active_menu_item request "/komunita/" %}>Komunita</a></li>
+            <li><a href="/download/"{% active_menu_item request "/download/" %}>Download</a></li>
+            <li><a href="/kontakt/"{% active_menu_item request "/kontakt/" %}>Kontakt</a></li>
+        </ul>
+    </div>
+</div>
+{# vim: set et si ts=4 sw=4 enc=utf-8 syn=django: #}

@@ -1,0 +1,227 @@
+/*
+    "Custom" styly.
+*/
+
+/* naformatovani kodu a poznamek v prelozene dokumentaci */
+.container .highlight {
+    background:transparent;
+}
+pre {
+    background: #E0FFB8;
+    padding:0.3em 0.6em;
+    overflow:auto;
+}
+.admonition, .admonition-note, .caution {
+    background:transparent url(../img/doc/icons/docicons-note.gif) no-repeat scroll 0.8em 0.8em;
+    padding-left:65px;
+}
+.note, .admonition, .caution {
+    border:1px solid #94DA3A;
+    margin:1em 0;
+    padding:0.8em 1em;
+}
+.admonition-title {
+    font-weight:bold;
+    margin-bottom:0 !important;
+    margin-top:0 !important;
+}
+.container code, .container pre {
+    color:#000;
+}
+
+/* permalinky u nadpisu */
+.headerlink {
+    margin-left:.5em;
+}
+h1 a.headerlink, h2 a.headerlink, h3 a.headerlink, h4 a.headerlink {
+    display:none;
+}
+h1:hover a.headerlink, h2:hover a.headerlink, h3:hover a.headerlink, h4:hover a.headerlink {
+    display: inline;
+}
+
+/* hlavni menu */
+#nav {
+    margin-left:0;
+    font-size:1.2em;
+    margin-bottom:12px;
+}
+#nav li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 6px;
+}
+#nav li a {
+    text-decoration:none;
+    padding:15px 12px 14px 12px;
+}
+#nav li a.active {
+    color:#000;
+    background:transparent url(../img/menu.png) repeat-x;
+}
+#nav li.first {
+    margin-left:0;
+}
+#navigation {
+    padding-top:14px;
+    background:transparent;
+}
+
+/* pozadi stranek */
+body {
+    background: #092E20 url(../img/pozadi.gif) repeat-x top;
+}
+
+/* linky */
+.container {
+}
+.container a:link, .container a:visited {
+    color:#FFC757;
+}
+.container a:hover { 
+    color:#ffe761; 
+}
+#content a:link, #content a:visited, #rightSideBar a:link, #rightSideBar a:visited {
+    color: #AB5603;
+}
+#content a:hover, #rightSideBar a:hover {
+    background-color: #E0FFB8;
+    color: #234F32;
+    text-decoration: none;
+}
+
+/* h1 nadpis v obsahu */
+#content h1 {
+    margin-bottom:1.2em;
+}
+
+/* prerazeni ul-li seznamu */
+.container ul {
+    list-style-type:square;
+}
+
+/* hlavicka */
+#header {
+    background:#000;
+}
+#header h1 {
+    background:url(../img/title.png) no-repeat;
+    width:388px;
+    height:100px;
+    margin:15px 0;
+    padding:0;
+}
+#header h1 span {
+    display:none;
+}
+
+/* obsah a sidebar */
+#wrapcontent {
+    background: #fff;
+}
+#doc #wrapcontent {
+    background: #fff url(../img/bg1.png) repeat-y;
+}
+#home #wrapcontent {
+    background: #fff url(../img/bg2.png) repeat-y;
+}
+#content, #rightSideBar {
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+/* paticka */
+#footer {
+    padding-top:20px;
+    background-color:#000;
+    color:#487858;
+}
+#footer a {
+    color:#9AEF3F;
+}
+
+/* prebiti pravidla o navstivenych odkazech */
+a[href^="http:"]:visited { 
+    background-image: url(../bluetrip/img/icons/external.png); 
+    padding-right: 14px;
+}
+
+/* tabulka s informacemi o prekladech */
+.container table.revision * {
+    color: #666;
+}
+.container table.revision {
+    border-top-color:transparent;
+    border-left-color:transparent;
+}
+.container table.revision th, .container table.revision td {
+    border-bottom-color:transparent;
+    border-right-color:transparent;
+    padding:.2em .8em .2em 0;
+    text-align:left;
+}
+
+/* obecne */
+.spbefore {
+    margin-top: 1.6em;
+}
+
+/* kontaktni formik */
+#contactform input[type='text'], #contactform textarea {
+    width:390px;
+}
+#contactform ul.errorlist * {
+    color:red;
+    margin-left:0;
+}
+#contactform p {
+    margin-bottom:.8em;
+}
+
+/* komentare */
+#comments {
+    padding-top:1.6em;
+    background:#ddd;
+}
+#comments label {
+    display:block;
+}
+#comments input[type='text'], #comments textarea {
+    width:260px;
+}
+#comments a:link, #comments a:visited, #rightSideBar a:link, #rightSideBar a:visited {
+    color: #AB5603;
+}
+#comments a:hover, #rightSideBar a:hover {
+    background-color: #E0FFB8;
+    color: #234F32;
+    text-decoration: none;
+}
+#comments .cdiv {
+    border-bottom:1px solid #ccc;
+    margin-top:0.8em;
+}
+#comments label {
+    font-weight:normal;
+}
+#comments div.required label {
+    font-weight:bold;
+}
+#comments div.required input[type='text'], #comments div.required textarea {
+    background:#fff url(../img/required.gif) 257px 5px no-repeat;
+}
+#comments div.error ul.errorlist {
+    margin-left:0;
+}
+#comments pre {
+    background: #e9e9e9;
+}
+
+.box {
+    background-color:rgb(224, 255, 184);
+    padding:1px 20px;
+}
+#content a.noext, #rightSideBar a.noext { 
+    background-image: none;
+    padding-right:0;
+}

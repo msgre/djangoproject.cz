@@ -1,0 +1,10 @@
+{% extends "flatpages/default.html" %}
+{% comment %}
+    Sablona pro homepage (generujeme jiny titulek a id do <body>).
+{% endcomment %}
+
+{% block title %}{{ flatpage.title }}{% endblock %}
+{% block body_id %}home{% endblock %}
+{% block comments %}{% endblock %}
+
+{# vim: set et si ts=4 sw=4 enc=utf-8: #}

@@ -1,0 +1,21 @@
+{% comment %}
+    Sablona, do ktere se nalije obsah a sidebar z prelozene
+    dokumentace (vystupu z Sphinx).
+
+    Viz translations.models.TranslationManager
+{% endcomment %}
+<div id="wrapcontent" class="span-22 last prefix-1 suffix-1">
+    <div id="content" class="span-14 suffix-1">
+        {% load translations %}
+        {% check_corector translation %}
+        {% autoescape off %}{{ content }}{% endautoescape %}
+    </div>
+    <div id="rightSideBar" class="span-7 last">
+        {% autoescape off %}{{ sidebar }}{% endautoescape %}
+        {#<p class="quiet spbefore">Informace o překladu:</p>#}
+        {% translation_info translation %}
+    </div>
+    <br class="clear" />
+</div>
+
+{# vim: set et si ts=4 sw=4 enc=utf-8 syn=django: #}

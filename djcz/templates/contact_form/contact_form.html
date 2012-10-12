@@ -1,0 +1,49 @@
+{% extends "common/bone.html" %}
+{% comment %}
+    Stranka s kontaktnim formularem.
+{% endcomment %}
+
+{% block title %}Kontakt | {{ block.super }}{% endblock %}
+
+{% block content %}
+    <div id="wrapcontent" class="span-22 prefix-1 suffix-1 last"><div id="content">
+        <h1>Kontakt</h1>
+
+        {% block contactform_content %}
+            <div class="span-10 suffix-1">
+                <form id="contactform" action="" method="post">
+                    <p>
+                        <label for="id_name">Vaše jméno</label><br />
+                        {{ form.name }}
+                        {{ form.name.errors }}
+                    </p>
+                    <p>
+                        <label for="id_email">Vaše emailová adresa</label><br />
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                    </p>
+                    <p>
+                        <label for="id_body">Vaše zpráva</label><br />
+                        {{ form.body }}
+                        {{ form.body.errors }}
+                    </p>
+                    <p>
+                        <input type="submit" value="Odeslat zprávu" />
+                    </p>
+                </form>
+            </div>
+            <div class="span-11 last">
+                <p>Tento formulář slouží ke kontaktování správce stránek s 
+                obecnými dotazy či připomínkami.</p>
+                <p>V případě, že potřebujete poradit s nějakým konkrétním problémem
+                v Djangu, oslovte komunitu v diskuzních skupinách 
+                <a href="http://groups.google.com/group/django-cs">django-cs</a> (v češtině) nebo
+                <a href="http://groups.google.com/group/django-users/">django-users</a> (v angličtině).
+                Připomínky k překladům nechávejte v komentářích na konci stránek.</p>
+                <p>Děkuji.</p>
+            </div>
+        {% endblock %}
+    </div></div>
+{% endblock %}
+
+{# vim: set et si ts=4 sw=4 enc=utf-8: }

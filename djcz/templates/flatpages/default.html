@@ -1,0 +1,59 @@
+{% extends "common/bone.html" %}
+{% comment %}
+    Defaultni stranka pro flatpage.
+{% endcomment %}
+
+{% block title %}{{ flatpage.title }} | {{ block.super }}{% endblock %}
+
+{% block content %}
+
+    {# obsah #}
+    {{ flatpage.content }}
+
+    {# komentare #}
+    {% block comments %}
+        {% if flatpage.enable_comments %}
+            {% load comments %}
+            {% load markup %}
+            {% get_comment_count for flatpage as comment_count %}
+            <div id="comments" class="span-22 prefix-1 suffix-1 last">
+                <h3>Komentáře{% if comment_count %} <span class="thin">({{ comment_count }})</span>{% endif %}</h3>
+                <div class="span-14 suffix-1">
+                    {% if comment_count %}
+                        {% get_comment_list for flatpage as comment_list %}
+                        {% for comment in comment_list %}
+                        <div class="clear span-14 last cdiv">
+                            <div class="span-4 suffix-1">
+                                <p>{% if comment.user_url %}<a href="{{ comment.user_url }}">{% endif %}<strong>{{ comment.user_name }}</strong>{% if comment.user_url %}</a>{% endif %}<br />
+                                {{ comment.submit_date|date }}</p>
+                            </div>
+                            <div class="span-9 last">
+                                {{ comment.comment|striptags|markdown }}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <p><em>K tématu na stránce se zatím nikdo nevyjádřil.</em></p>
+                    {% endif %}
+                </div>
+                <div class="span-7 last">
+                    <p>Komentujte prosím pouze témata z této stránky.
+                    Díky.</p>
+                    {% comment %}
+                    <p>Pomoc s programováním najdete v diskuzních
+                    skupinách <a
+                    href="http://groups.google.com/group/django-users/">django-users</a>
+                    (v angličtině) a <a
+                    href="http://groups.google.com/group/django-cs">django-cs</a>
+                    (v češtině). Obecné dotazy odesílejte <a
+                    href="/kontakt/">přímo správci webu</a>.
+                    <strong>Díky!</strong></p>
+                    {% endcomment %}
+                    {% render_comment_form for flatpage %}
+                </div>
+            </div>
+        {% endif %}
+    {% endblock %}
+{% endblock %}
+
+{# vim: set et si ts=4 sw=4 enc=utf-8: }

@@ -1,0 +1,8 @@
+{% load comments %}
+<form action="{% comment_form_target %}" method="post">
+    {% include "comments/form_items.html" %}
+    <p class="submit">
+        <input type="submit" name="post" class="submit-post" value="Odeslat" />
+        <input type="submit" name="preview" class="submit-preview" value="Náhled" />
+    </p>
+</form>

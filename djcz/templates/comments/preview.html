@@ -1,0 +1,29 @@
+{% extends "comments/base.html" %}
+
+{% block title %}Zkontrolujte svůj komentář | {{ block.super }}{% endblock %}
+
+{% block content %}
+    <div id="comments" class="span-22 prefix-1 suffix-1 last">
+        {% load comments %}
+        {% load markup %}
+        <form action="{% comment_form_target %}" method="post">
+            {% if form.errors %}
+                <h3>Opravte prosím níže uvedené chyby</h3>
+                <div class="span-8 last">
+            {% else %}
+                <h3>Zkontrolujte svůj komentář...</h3>
+                <div class="span-14 suffix-1">
+                    <blockquote>{{ comment|striptags|markdown }}</blockquote>
+                    <p>...a pokud je v pořádku <input type="submit" name="submit" class="submit-post" value="odešlete jej" id="submit" /> nebo s pomocí formuláře proveďte jeho úpravu.</p>
+                </div>
+                <div class="span-7 last">
+            {% endif %}
+                {% include "comments/form_items.html" %}
+                <p class="submit">
+                    <input type="submit" name="submit" class="submit-post" value="Odeslat" />
+                    <input type="submit" name="preview" class="submit-preview" value="Náhled" />
+                </p>
+            </div>
+        </form>
+    </div>
+{% endblock %}

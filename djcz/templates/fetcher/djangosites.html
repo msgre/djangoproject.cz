@@ -1,0 +1,15 @@
+{% autoescape on %}
+{% if data %}
+    <h4><span class="small">Nejnovější přírůstek:</span><br />
+    <a href="{{ data.0.1 }}">{{ data.0.0 }}</a></h4>
+    <a href="{{ data.0.1 }}" class="noext"><img src="{{ data.0.2 }}" alt="Screenshot z webu {{ data.0.0 }}"></a>
+    <p class="spbefore">Kompletní seznam "českých" webů (nejnovější nahoře):</p>
+    <ul>
+    {% for item in data|slice:"1:" %}
+        <li><a href="{{ item.1 }}">{{ item.0 }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p><em>Došlo k chybě při načítání seznamu webů <a href="http://djangosites.org/">djangosites.org</a>.</em></p>
+{% endif %}
+{% endautoescape %}

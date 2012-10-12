@@ -1,0 +1,10 @@
+{% comment %}
+    Sablona pro tag {% check_corector %}.
+{% endcomment %}
+{% if not corected %}
+    <p class="notice">
+        Tato stránka nebyla po překladu zkontrolována. Může obsahovat nepřesnosti
+        a chyby.<br />Pokud na nějaké narazíte, <a href="{% url contact_form %}">ozvěte se</a> prosím.
+    </p>
+{% endif %}
+{# vim: set et si ts=4 sw=4 enc=utf-8 syn=django: #}

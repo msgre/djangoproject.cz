@@ -1,0 +1,3 @@
+Kdo se pta: {{ name }} / {{ email }}
+
+Dotaz: {{ body }}

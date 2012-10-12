@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<title>{% block title %}Django Česká republika{% endblock %}</title>
+    <link rel="stylesheet" href="{{ MEDIA_URL }}bluetrip/css/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="{{ MEDIA_URL }}bluetrip/css/print.css" type="text/css" media="print">
+	<!--[if IE]>
+		<link rel="stylesheet" href="{{ MEDIA_URL }}bluetrip/css/ie.css" type="text/css" media="screen, projection">
+	<![endif]-->
+    <link rel="stylesheet" href="{{ MEDIA_URL }}bluetrip/css/style.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/styles.css?v=2" type="text/css" />
+</head>
+{% block body %}
+<body id="{% block body_id %}default{% endblock %}">
+	<div class="container"{% block container_id %}{% endblock %}>
+        {% block header %}
+        <div id="header" class="span-22 prefix-1 suffix-1 last">
+            <h1><span>Django Česká republika -- webový framework pro perfekcionisty s termíny</span></h1>
+        </div>
+        {% endblock %}
+        {% block menu %}{% include "common/menu.html" %}{% endblock %}
+        {% load typogrify %}
+        {% filter smartypants|initial_quotes %}
+            {% block content %}{% endblock %}
+        {% endfilter %}
+        {% block footer %}
+        <div id="footer" class="span-22 clear prefix-1 suffix-1 last">
+            <p>&copy; 2005&ndash;{% now "Y" %} <a href="http://www.djangoproject.com/foundation/">Django Software Foundation</a>, pokud není uvedeno jinak. Django je registrovaná ochranná známka nadace Django Software Foundation.<br />
+            Českou verzi stránek zprovoznil a udržuje <a href="{% url contact_form %}">Michal Valoušek</a>.</p>
+            {% if user.is_authenticated and user.is_active and user.is_staff and flatpage %}
+                <p>Akce: <a href="/admin/flatpages/flatpage/{{ flatpage.id }}/">Editovat stránku</a></p>
+            {% endif %}
+        </div>
+        {% endblock %}
+	</div> <!-- end .container -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-222140-6");
+pageTracker._trackPageview();
+</script>
+</body>
+{% endblock %}
+</html>
+{# vim: set et si ts=4 sw=4 enc=utf-8 syn=django: #}

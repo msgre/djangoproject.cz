@@ -1,0 +1,21 @@
+{% comment %}
+    Spolecna cast kodu pro preview.html i form.html.
+{% endcomment %}
+{% for field in form %}
+    {% if field.is_hidden %}
+        {{ field }}
+    {% else %}
+        <div
+        {% if field.errors and field.field.required %} 
+        class="error required"
+        {% else %}
+            {% if field.errors %} class="error"{% endif %}
+            {% if field.field.required %} class="required"{% endif %}
+        {% endif %}
+        {% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
+            {% if field.errors %}{{ field.errors }}{% endif %}
+            {{ field.label_tag }} {{ field }}
+        </div>
+    {% endif %}
+{% endfor %}
+<p>Komentář je formátován s pomocí <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a>, HTML kód bude odstraněn. Odesláním vašeho příspěvku projevujete souhlas s <a href="/komentarova-pravidla/">komentářovými pravidly</a>.</p>

@@ -1,0 +1,39 @@
+{% extends "admin/base_site.html" %}
+{% load adminmedia admin_list i18n %}
+
+{% block stylesheet %}{% admin_media_prefix %}css/changelists.css{% endblock %}
+
+{% block bodyclass %}change-list{% endblock %}
+
+{% if not is_popup %}{% block breadcrumbs %}<div class="breadcrumbs"><a href="../../">{% trans "Home" %}</a> &rsaquo; <a href="../../">{{ app_label|capfirst }}</a> &rsaquo; <a href="../">{{ verbose_name|capfirst }}</a> &rsaquo; {{ title }}</div>{% endblock %}{% endif %}
+
+{% block coltype %}flex{% endblock %}
+
+{% block content %}
+<div id="content-main">
+<p>Dokumentace byla prostřednictvím aplikace Sphinx vygenerována a zkonvertována do modelu FlatPage.</p>
+<p>Zkontrolujte prosím výstup kompilace:</p>
+
+<div class="module">
+<h2>Stderr výstup</h2>
+<table id="change-history">
+<tbody>
+{% for row in sphinx_stderr %}
+<tr><td style="font-family:monospace">{{ row }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+
+<div class="module">
+<h2>Stdout výstup</h2>
+<table id="change-history">
+<tbody>
+{% for row in sphinx_stdout %}
+<tr><td style="font-family:monospace">{{ row }}</td></tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+{% endblock %}

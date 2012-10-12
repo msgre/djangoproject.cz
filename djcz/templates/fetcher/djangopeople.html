@@ -1,0 +1,11 @@
+{% autoescape on %}
+{% if data %}
+    <ul>
+    {% for item in data %}
+        <li><a href="{{ item.1 }}">{{ item.0 }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p><em>Došlo k chybě při načítání seznamu lidí z <a href="http://djangopeople.net/">djangopeople.net</a>.</em></p>
+{% endif %}
+{% endautoescape %}

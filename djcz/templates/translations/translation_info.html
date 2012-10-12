@@ -1,0 +1,25 @@
+{% comment %}
+    Sablona pro tag {% translation_info %}.
+{% endcomment %}
+<table class="revision">
+    {% comment %}
+    TODO: prvni musim do obsahu revize dostat; pak bych mel ukazovat i jine informace, jako napr. jak moc aktualni tento preklad je (tj. kdy se naposledy zmenil original a kdy preklad, nebo kolik % je jinak, nebo neco podobneho...)
+    <tr>
+        <th>Revize</th>
+        <td>{{ translation.revision }}</td>
+    </tr>
+    {% endcomment %}
+    {% if translators %}
+    <tr>
+        <th>Překlad</th>
+        <td>{% for i in translators %}{{ i.get_full_name }}{% if not forloop.last %}<br />{% endif %}{% endfor %}</td>
+    </tr>
+    {% endif %}
+    {% if corectors %}
+    <tr>
+        <th>Korekce</th>
+        <td>{% for i in corectors %}{% firstof i.get_full_name i.username %}{% if not forloop.last %}<br />{% endif %}{% endfor %}</td>
+    </tr>
+    {% endif %}
+</table>
+{# vim: set et si ts=4 sw=4 enc=utf-8 syn=django: #}

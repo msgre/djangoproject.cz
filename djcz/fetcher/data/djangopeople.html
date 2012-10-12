@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Czech Republic | Django People</title>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css" media="all" charset="utf-8">
+    <script type="text/javascript" src="/static/js/jquery-1.2.1.js"></script>
+    <script type="text/javascript" src="/static/js/common.js"></script>
+    
+<script src="http://www.google.com/jsapi?key=ABQIAAAAyYu8a7AdbfUctK3zwwu_2hRrUckTKy41R-wQnmvkcFiS7FD0_xTL4DTUcdEUfW_nnY4-iyGuFCtxFQ" type="text/javascript">
+</script>
+<script type="text/javascript">
+google.load('maps', '2');
+
+var people = [
+    // latitude, longitude, name, username, location description
+    
+    [50.0713538385, 14.4159936905, "Lorenzo Bolognini", "lbolognini", "Nové Město, Hlavní Mesto Praha", "/static/profiles/_thumbs/bc5927c3b056d5e62c2f617a7e58f436_jpg_40x40_crop_q85.jpg", "cz"],
+    
+    [50.0880841962, 14.4645094872, "Ondřej Kohout", "iky", "Žižkov", "/static/profiles/_thumbs/9964e412f8cb8678fa589f551d0c4404_jpg_40x40_crop_q85.jpg", "cz"],
+    
+    [50.1235359987, 14.4959235191, "Petr Chalupný", "temnoregg", "Střížkov, Hlavní Mesto Praha", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.028530598, 14.3674135208, "Honza Král", "king", "Barrandov, Praha", "/static/profiles/_thumbs/c7872df62763c45398099fa08f7498ee_jpg_40x40_crop_q85.jpg", "cz"],
+    
+    [50.4209876509, 14.2533874512, "Jakub Vysoký", "kvbik", "Roudnice nad Labem", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.0874371222, 14.363079071, "Jack DeNeut", "jdeneut", "Střešovice", "/static/img/person_small_blank.png", "cz"],
+    
+    [49.2044, 16.5836, "Filip Munz", "limu", "Brno", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.0968807824, 14.4070994854, "Jakub Dolejsek", "x0nix", "Malá Strana, Hlavní Mesto Praha", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.1005834007, 14.3909740448, "Daniel Srb", "benabraham", "Bubeneč, Hlavní Mesto Praha", "/static/profiles/_thumbs/3cbf1a499aabef909d8d4418c6cec17c_gif_40x40_crop_q85.jpg", "cz"],
+    
+    [50.1788769161, 14.6816825867, "Petr Michalec", "epcim", "Brandýs nad Labem", "/static/img/person_small_blank.png", "cz"],
+    
+    [49.4002499967, 14.6502685547, "Mike Robinson", "mickro", "Tabor", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.0331068469, 14.5150852203, "Vítek Pliska", "whit", "Chodov, Hlavní Město Praha", "/static/profiles/_thumbs/b7b8981a6e791280cea695c2457b28a0_jpg_40x40_crop_q85.jpg", "cz"],
+    
+    [50.051386815, 14.3312466145, "Jiri Barton", "whiskybar", "Praha", "/static/profiles/_thumbs/8da6e0e5481fc5a4387a8f8956320701_jpg_40x40_crop_q85.jpg", "cz"],
+    
+    [49.4714846293, 17.9715299606, "Michal Valoušek", "msgre", "Valašské Meziříčí, Zlínský Kraj", "/static/profiles/_thumbs/3576de67a257ba3cb4a123fd8ec8b98d_png_40x40_crop_q85.jpg", "cz"],
+    
+    [49.3984486039, 15.5877757072, "Joakim Schramm", "joasch", "Jihlava", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.1029094345, 14.5761108398, "Tomáš Hrabinský", "hraboss", "Černý Most, Hlavní město Praha", "/static/profiles/_thumbs/b9d1b44052c8fa3b10ec5f00a2aab02c_png_40x40_crop_q85.jpg", "cz"],
+    
+    [50.057138776, 14.5623779297, "Stanislav Vohnik", "hombre66", "Horní Měcholupy", "/static/img/person_small_blank.png", "cz"],
+    
+    [49.8890772577, 14.2852950096, "Ales Zoulek", "al3x", "Řitka, Středočeský Kraj", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.1903839029, 15.8443129063, "Aleš Komárek", "newt", "Hradec Králové, Královéhradecký Kraj", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.0888689338, 14.4717407227, "Václav Stoupa", "veena", "Praha", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.0876849388, 14.3902015686, "Robert Morrison", "praguebob", "Hradčany, Hlavní Mesto Praha", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.1031571711, 14.406337738, "Jan Češpivo", "beer", "Praha", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.0682825297, 14.4303274155, "Lukáš Linhart", "almad", "Nusle", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.0313976965, 14.4841003418, "Tomáš Horáček", "heracek", "Horní Roztyly, Hlavní Mesto Praha", "/static/img/person_small_blank.png", "cz"],
+    
+    [49.1745215181, 16.6058349609, "Tomáš Kopeček", "permon", "Brno", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.0479904232, 14.4540596008, "Jirka Vejrazka", "jirkav", "Pankrác, Hlavní Mesto Praha", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.7538347098, 15.0402832031, "Hana Fetrova", "hanka", "Horní Růžodol", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.1321885284, 14.477148056, "Petr Pravda", "petrpravda", "Střížkov, Hlavní Mesto Praha", "/static/profiles/_thumbs/47d04bcb90cfeb43b58c6ac4e3561428_jpg_40x40_crop_q85.jpg", "cz"],
+    
+    [50.7446705047, 15.0982189178, "Vlada Macek", "tuttle", "Vratislavice nad Nisou, Liberecký Kraj", "/static/profiles/_thumbs/fd178770be37eb4abb0c9fabb4a99b08_png_40x40_crop_q85.jpg", "cz"],
+    
+    [48.8090821373, 14.3268370628, "Lukáš Jirka", "ornyx", "Český Krumlov, Jihočeský Kraj", "/static/profiles/_thumbs/827557e95a3a81056ba1eab4bdfdb7fe_jpg_40x40_crop_q85.jpg", "cz"],
+    
+    [49.59624754, 17.2547149658, "Jan Bednařík", "architekt", "Olomouc, Olomoucký Kraj", "/static/img/person_small_blank.png", "cz"],
+    
+    [49.5920192595, 17.2519683838, "Jan Munclinger", "mokys", "Olomouc, Olomoucký Kraj", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.9208104224, 15.0734567642, "Oldřich Kučina", "ruddy", "Frýdlant, Liberecký Kraj", "/static/profiles/_thumbs/42574fd8b119c00ca6a0579454867abb_jpg_40x40_crop_q85.jpg", "cz"],
+    
+    [50.0712436604, 14.4195556641, "Jan Kafka", "jenicek", "Nové Město, Hlavní Mesto Praha", "/static/profiles/_thumbs/0289f2a49d15ae65c8cfd5ab85ed8555_jpg_40x40_crop_q85.jpg", "cz"],
+    
+    [50.0862255559, 14.4291687012, "dmitrij strelnikov", "strelnikovdmitrij", "Praha, Hlavní Mesto Praha", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.484627055, 14.3256139755, "Jiří Nádvorník", "nadvornix", "Hoštka", "/static/img/person_small_blank.png", "cz"],
+    
+    [49.2683506121, 13.8913536072, "Jan Janský", "mister", "Nové Strakonice, Jihočeský Kraj", "/static/profiles/_thumbs/84e50f9e6f87ad8f161d0d45b48bf7ed_jpg_40x40_crop_q85.jpg", "cz"],
+    
+    [49.7753335935, 13.255777359, "Petr Dvořák", "dvop", "Město Touškov, Plzeňský Kraj", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.0352569819, 15.7872676849, "ludek chmela", "app77e", "Studánka, Pardubický Kraj", "/static/img/person_small_blank.png", "cz"],
+    
+    [48.7883188383, 14.7745513916, "Vladimir Prudnikov", "prudnikov", "Nové Hrady, Jihočeský Kraj", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.0307912092, 14.2274665833, "Miloš Kozák", "lejmr", "Dušníky, Středočeský Kraj", "/static/profiles/_thumbs/2e95f4b3d7b784fc8dbfc201d1fea276_png_40x40_crop_q85.jpg", "cz"],
+    
+    [49.1947178703, 16.6084098816, "Milan Cermak", "milancermak", "Brno, South Moravian Region", "/static/img/person_small_blank.png", "cz"],
+    
+    [49.2317623419, 16.569442749, "Tomas Kral", "kadel", "Brno", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.0740971913, 14.4658184052, "dave ruzius", "daveruzius", "Vršovice, Praha", "/static/img/person_small_blank.png", "cz"],
+    
+    [50.0751410562, 14.4512486458, "Tomas Andrle", "tomovo", "Královské Vinohrady", "/static/img/person_small_blank.png", "cz"],
+    
+    [49.3394409372, 17.9928588867, "Jaromir Fojtu", "syntaxsugar", "Vsetín, Zlínský Kraj", "/static/profiles/_thumbs/615192ca116748a09e9ddff2c1098bcc_jpg_40x40_crop_q85.jpg", "cz"],
+    
+    [49.4561859339, 17.4495506287, "Lukáš Sládeček", "smoke", "Přerov, Olomoucký Kraj", "/static/profiles/_thumbs/84dd8b62197d62a444c71a2cbf15c8c2_jpg_40x40_crop_q85.jpg", "cz"]
+    
+];
+
+window.onload = function() {
+    window.gmap = new google.maps.Map2(document.getElementById('gmap'));
+    gmap.addControl(new google.maps.LargeMapControl());
+    gmap.addControl(new google.maps.MapTypeControl());
+    // Figure out map settings based on country bounds
+    // We have to render the map first or the bounds calculations will fail
+    gmap.setCenter(new google.maps.LatLng(51.053604, 12.093704));
+    var bounds = new google.maps.LatLngBounds();
+    bounds.extend(new google.maps.LatLng(51.053604, 12.093704));
+    bounds.extend(new google.maps.LatLng(48.581379, 18.852219));
+    gmap.setZoom(gmap.getBoundsZoomLevel(bounds));
+    gmap.setCenter(bounds.getCenter());
+    
+    // Plot the people as markers
+    $.each(people, function() {
+        var lat = this[0];
+        var lon = this[1];
+        var name = this[2];
+        var username = this[3];
+        var location_description = this[4];
+        var photo = this[5];
+        var iso_code = this[6];
+        var point = new google.maps.LatLng(lat, lon);
+        bounds.extend(point);
+        var marker = new google.maps.Marker(point, getMarkerOpts());
+        gmap.addOverlay(marker);
+        // Hook up the marker click event
+        google.maps.Event.addListener(marker, 'click', function() {
+            marker.openInfoWindow(makeWindow(
+                name, username, location_description, photo, iso_code, 
+                lat, lon
+            ));
+        });
+    });
+    // Re-plot, just in case someone was outside the original bounds (e.g. a 
+    // US resident of Hawaii)
+    gmap.setCenter(bounds.getCenter());
+
+};
+</script>
+
+
+</head>
+<body>
+
+    <div class="nav">
+        <ul>
+            <li><a href="/">home</a></li>
+            <li><a href="/about/">about</a></li>
+            <li><a href="/search/">search</a></li>
+            
+            <!-- not logged in -->
+            <li><a href="/login/" class="login">log in</a></li>
+            <li><a href="/signup/">sign up as a django person</a></li>
+            
+
+        </ul>
+		
+		<div id="hiddenLogin" style="display: none">
+		    <form action="/login/" method="POST"><p><label for="id_usernameH">Username</label><input type="text" name="username" id="id_usernameH"></p><p><label for="id_passwordH">Password</label><input type="password" name="password" id="id_passwordH"></p><p><input type="submit" value="Log in" class="submit"></p>
+		        <p class="openid">Or <a href="/openid/">log in with <strong>OpenID</strong></a></p>
+		    </form>
+		</div>
+		
+    </div>
+    <div class="header content">
+        
+        <img src="/static/img/flags/cz.gif" alt="Czech Republic" class="main">
+        <h1>Czech Republic</h1>
+        <p class="meta">47 Django people</p>
+
+    </div>
+
+    <div class="mapContainer major">
+        <div id="gmap">&nbsp;</div>
+    </div>
+
+    <div class="content">
+        
+    
+    
+    
+        <ul class="detailsList split">
+            
+<li class="vcard">
+    <img src="/static/profiles/_thumbs/bc5927c3b056d5e62c2f617a7e58f436_jpg_40x40_crop_q85.jpg" alt="Lorenzo Bolognini" class="main photo">
+    <h3><a href="/lbolognini/" class="url fn n"><span class="given-name">Lorenzo</span> <span class="family-name">Bolognini</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Nové Město, Hlavní Mesto Praha</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/profiles/_thumbs/9964e412f8cb8678fa589f551d0c4404_jpg_40x40_crop_q85.jpg" alt="Ondřej Kohout" class="main photo">
+    <h3><a href="/iky/" class="url fn n"><span class="given-name">Ondřej</span> <span class="family-name">Kohout</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Žižkov</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Petr Chalupný" class="main photo">
+    <h3><a href="/temnoregg/" class="url fn n"><span class="given-name">Petr</span> <span class="family-name">Chalupný</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Střížkov, Hlavní Mesto Praha</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/profiles/_thumbs/c7872df62763c45398099fa08f7498ee_jpg_40x40_crop_q85.jpg" alt="Honza Král" class="main photo">
+    <h3><a href="/king/" class="url fn n"><span class="given-name">Honza</span> <span class="family-name">Král</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Barrandov, Praha</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Jakub Vysoký" class="main photo">
+    <h3><a href="/kvbik/" class="url fn n"><span class="given-name">Jakub</span> <span class="family-name">Vysoký</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Roudnice nad Labem</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Jack DeNeut" class="main photo">
+    <h3><a href="/jdeneut/" class="url fn n"><span class="given-name">Jack</span> <span class="family-name">DeNeut</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Střešovice</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Filip Munz" class="main photo">
+    <h3><a href="/limu/" class="url fn n"><span class="given-name">Filip</span> <span class="family-name">Munz</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Brno</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Jakub Dolejsek" class="main photo">
+    <h3><a href="/x0nix/" class="url fn n"><span class="given-name">Jakub</span> <span class="family-name">Dolejsek</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Malá Strana, Hlavní Mesto Praha</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/profiles/_thumbs/3cbf1a499aabef909d8d4418c6cec17c_gif_40x40_crop_q85.jpg" alt="Daniel Srb" class="main photo">
+    <h3><a href="/benabraham/" class="url fn n"><span class="given-name">Daniel</span> <span class="family-name">Srb</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Bubeneč, Hlavní Mesto Praha</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Petr Michalec" class="main photo">
+    <h3><a href="/epcim/" class="url fn n"><span class="given-name">Petr</span> <span class="family-name">Michalec</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Brandýs nad Labem</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Mike Robinson" class="main photo">
+    <h3><a href="/mickro/" class="url fn n"><span class="given-name">Mike</span> <span class="family-name">Robinson</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Tabor</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/profiles/_thumbs/b7b8981a6e791280cea695c2457b28a0_jpg_40x40_crop_q85.jpg" alt="Vítek Pliska" class="main photo">
+    <h3><a href="/whit/" class="url fn n"><span class="given-name">Vítek</span> <span class="family-name">Pliska</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Chodov, Hlavní Město Praha</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/profiles/_thumbs/8da6e0e5481fc5a4387a8f8956320701_jpg_40x40_crop_q85.jpg" alt="Jiri Barton" class="main photo">
+    <h3><a href="/whiskybar/" class="url fn n"><span class="given-name">Jiri</span> <span class="family-name">Barton</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Praha</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/profiles/_thumbs/3576de67a257ba3cb4a123fd8ec8b98d_png_40x40_crop_q85.jpg" alt="Michal Valoušek" class="main photo">
+    <h3><a href="/msgre/" class="url fn n"><span class="given-name">Michal</span> <span class="family-name">Valoušek</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Valašské Meziříčí, Zlínský Kraj</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Joakim Schramm" class="main photo">
+    <h3><a href="/joasch/" class="url fn n"><span class="given-name">Joakim</span> <span class="family-name">Schramm</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Jihlava</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/profiles/_thumbs/b9d1b44052c8fa3b10ec5f00a2aab02c_png_40x40_crop_q85.jpg" alt="Tomáš Hrabinský" class="main photo">
+    <h3><a href="/hraboss/" class="url fn n"><span class="given-name">Tomáš</span> <span class="family-name">Hrabinský</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Černý Most, Hlavní město Praha</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Stanislav Vohnik" class="main photo">
+    <h3><a href="/hombre66/" class="url fn n"><span class="given-name">Stanislav</span> <span class="family-name">Vohnik</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Horní Měcholupy</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Ales Zoulek" class="main photo">
+    <h3><a href="/al3x/" class="url fn n"><span class="given-name">Ales</span> <span class="family-name">Zoulek</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Řitka, Středočeský Kraj</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Aleš Komárek" class="main photo">
+    <h3><a href="/newt/" class="url fn n"><span class="given-name">Aleš</span> <span class="family-name">Komárek</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Hradec Králové, Královéhradecký Kraj</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Václav Stoupa" class="main photo">
+    <h3><a href="/veena/" class="url fn n"><span class="given-name">Václav</span> <span class="family-name">Stoupa</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Praha</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Robert Morrison" class="main photo">
+    <h3><a href="/praguebob/" class="url fn n"><span class="given-name">Robert</span> <span class="family-name">Morrison</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Hradčany, Hlavní Mesto Praha</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Jan Češpivo" class="main photo">
+    <h3><a href="/beer/" class="url fn n"><span class="given-name">Jan</span> <span class="family-name">Češpivo</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Praha</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Lukáš Linhart" class="main photo">
+    <h3><a href="/almad/" class="url fn n"><span class="given-name">Lukáš</span> <span class="family-name">Linhart</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Nusle</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Tomáš Horáček" class="main photo">
+    <h3><a href="/heracek/" class="url fn n"><span class="given-name">Tomáš</span> <span class="family-name">Horáček</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Horní Roztyly, Hlavní Mesto Praha</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Tomáš Kopeček" class="main photo">
+    <h3><a href="/permon/" class="url fn n"><span class="given-name">Tomáš</span> <span class="family-name">Kopeček</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Brno</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Jirka Vejrazka" class="main photo">
+    <h3><a href="/jirkav/" class="url fn n"><span class="given-name">Jirka</span> <span class="family-name">Vejrazka</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Pankrác, Hlavní Mesto Praha</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Hana Fetrova" class="main photo">
+    <h3><a href="/hanka/" class="url fn n"><span class="given-name">Hana</span> <span class="family-name">Fetrova</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Horní Růžodol</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/profiles/_thumbs/47d04bcb90cfeb43b58c6ac4e3561428_jpg_40x40_crop_q85.jpg" alt="Petr Pravda" class="main photo">
+    <h3><a href="/petrpravda/" class="url fn n"><span class="given-name">Petr</span> <span class="family-name">Pravda</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Střížkov, Hlavní Mesto Praha</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/profiles/_thumbs/fd178770be37eb4abb0c9fabb4a99b08_png_40x40_crop_q85.jpg" alt="Vlada Macek" class="main photo">
+    <h3><a href="/tuttle/" class="url fn n"><span class="given-name">Vlada</span> <span class="family-name">Macek</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Vratislavice nad Nisou, Liberecký Kraj</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/profiles/_thumbs/827557e95a3a81056ba1eab4bdfdb7fe_jpg_40x40_crop_q85.jpg" alt="Lukáš Jirka" class="main photo">
+    <h3><a href="/ornyx/" class="url fn n"><span class="given-name">Lukáš</span> <span class="family-name">Jirka</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Český Krumlov, Jihočeský Kraj</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Jan Bednařík" class="main photo">
+    <h3><a href="/architekt/" class="url fn n"><span class="given-name">Jan</span> <span class="family-name">Bednařík</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Olomouc, Olomoucký Kraj</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Jan Munclinger" class="main photo">
+    <h3><a href="/mokys/" class="url fn n"><span class="given-name">Jan</span> <span class="family-name">Munclinger</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Olomouc, Olomoucký Kraj</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/profiles/_thumbs/42574fd8b119c00ca6a0579454867abb_jpg_40x40_crop_q85.jpg" alt="Oldřich Kučina" class="main photo">
+    <h3><a href="/ruddy/" class="url fn n"><span class="given-name">Oldřich</span> <span class="family-name">Kučina</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Frýdlant, Liberecký Kraj</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/profiles/_thumbs/0289f2a49d15ae65c8cfd5ab85ed8555_jpg_40x40_crop_q85.jpg" alt="Jan Kafka" class="main photo">
+    <h3><a href="/jenicek/" class="url fn n"><span class="given-name">Jan</span> <span class="family-name">Kafka</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Nové Město, Hlavní Mesto Praha</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="dmitrij strelnikov" class="main photo">
+    <h3><a href="/strelnikovdmitrij/" class="url fn n"><span class="given-name">dmitrij</span> <span class="family-name">strelnikov</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Praha, Hlavní Mesto Praha</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Jiří Nádvorník" class="main photo">
+    <h3><a href="/nadvornix/" class="url fn n"><span class="given-name">Jiří</span> <span class="family-name">Nádvorník</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Hoštka</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/profiles/_thumbs/84e50f9e6f87ad8f161d0d45b48bf7ed_jpg_40x40_crop_q85.jpg" alt="Jan Janský" class="main photo">
+    <h3><a href="/mister/" class="url fn n"><span class="given-name">Jan</span> <span class="family-name">Janský</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Nové Strakonice, Jihočeský Kraj</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Petr Dvořák" class="main photo">
+    <h3><a href="/dvop/" class="url fn n"><span class="given-name">Petr</span> <span class="family-name">Dvořák</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Město Touškov, Plzeňský Kraj</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="ludek chmela" class="main photo">
+    <h3><a href="/app77e/" class="url fn n"><span class="given-name">ludek</span> <span class="family-name">chmela</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Studánka, Pardubický Kraj</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Vladimir Prudnikov" class="main photo">
+    <h3><a href="/prudnikov/" class="url fn n"><span class="given-name">Vladimir</span> <span class="family-name">Prudnikov</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Nové Hrady, Jihočeský Kraj</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/profiles/_thumbs/2e95f4b3d7b784fc8dbfc201d1fea276_png_40x40_crop_q85.jpg" alt="Miloš Kozák" class="main photo">
+    <h3><a href="/lejmr/" class="url fn n"><span class="given-name">Miloš</span> <span class="family-name">Kozák</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Dušníky, Středočeský Kraj</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Milan Cermak" class="main photo">
+    <h3><a href="/milancermak/" class="url fn n"><span class="given-name">Milan</span> <span class="family-name">Cermak</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Brno, South Moravian Region</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Tomas Kral" class="main photo">
+    <h3><a href="/kadel/" class="url fn n"><span class="given-name">Tomas</span> <span class="family-name">Kral</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Brno</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="dave ruzius" class="main photo">
+    <h3><a href="/daveruzius/" class="url fn n"><span class="given-name">dave</span> <span class="family-name">ruzius</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Vršovice, Praha</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/img/person_small_blank.png" alt="Tomas Andrle" class="main photo">
+    <h3><a href="/tomovo/" class="url fn n"><span class="given-name">Tomas</span> <span class="family-name">Andrle</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Královské Vinohrady</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/profiles/_thumbs/615192ca116748a09e9ddff2c1098bcc_jpg_40x40_crop_q85.jpg" alt="Jaromir Fojtu" class="main photo">
+    <h3><a href="/syntaxsugar/" class="url fn n"><span class="given-name">Jaromir</span> <span class="family-name">Fojtu</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Vsetín, Zlínský Kraj</span></p>
+</li>
+
+<li class="vcard">
+    <img src="/static/profiles/_thumbs/84dd8b62197d62a444c71a2cbf15c8c2_jpg_40x40_crop_q85.jpg" alt="Lukáš Sládeček" class="main photo">
+    <h3><a href="/smoke/" class="url fn n"><span class="given-name">Lukáš</span> <span class="family-name">Sládeček</span></a></h3>
+    <p class="meta adr"><a href="/cz/" class="nobg"><img src="/static/img/flags/cz.gif" alt="Czech Republic" class="country-name" title="Czech Republic"></a> <span class="region">Přerov, Olomoucký Kraj</span></p>
+</li>
+
+
+        </ul>
+        
+    
+    </div>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-3465389-1";
+urchinTracker();
+</script>
+</body>
+</html>
